@@ -40,3 +40,6 @@ Use lat & lng attributes to show it in map view
 ## Live version url's
 I have deployed the same in my domain.
 http://muralimanohar.in/iec-test-app
+
+This is the link to my API server. Make a GET request with any zipcode.
+http://muralimanohar.in/iec-api/361
