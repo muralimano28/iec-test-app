@@ -17,6 +17,11 @@
   },
   "homepage": "https://github.com/muralimano28/iec-test-app#readme",
   "dependencies": {
-    "express": "^4.14.0"
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "request": "^2.79.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }
