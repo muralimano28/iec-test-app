@@ -16,7 +16,7 @@ App.use(BodyParser.urlencoded({ extended: true }));
 
 App.get("/:zipcode", function(req, res) {
 	Request.get(API_URL + req.params.zipcode, function (error, response, body) {
-		res.send(body);
+		res.send(JSON.parse(body));
 	});
 });
 

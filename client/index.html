@@ -2,12 +2,57 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
+		<meta name=viewport content="width=device-width, initial-scale=1">
 		<title>IEC test app</title>
 		<link rel="stylesheet" type="text/css" href="/style.css" />
 		<script type="text/javascript" src="/assets/jquery-3.1.1.min.js"></script>
 	</head>
 	<body>
-		<h1>I am test app</h1>
+		<form id="inputform" method="GET" onsubmit="onSubmit(event)">
+			<label for="zipcode"></label>
+			<input type="text" id="zipcode" placeholder="Enter zipcode. Zipcode should be 3 characters or 5 charcters (Eg: 361)" required/>
+			<button type="submit">Submit</button>
+			<p class="errormsg"></p>
+		</form>
+		<div id="info">
+			<p class="errormsg"></p>
+			<div class="loader hide"></div>
+			<table>
+				<thead>
+					<tr>
+						<th>S.NO</th>
+						<th>ZIPCODE</th>
+						<th>ADDRESS</th>
+						<th>LATITUDE</th>
+						<th>LONGITUTDE</th>
+						<th>VIEW ON MAP</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="empty">
+						<td colspan=6>-- Table is empty --</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div id="api-errormsg" class="hide">
+			<p>Unknown error occurred</p>
+		</div>
+		<div id="map-canvas" class="hide">
+			<button type="button" onclick="closeMapCanvas(event)">close</button>
+			<div id="map"></div>
+			<div class="details">
+				<label>Zipcode</label>
+				<p class="zipcode"></p>
+				<label>Address</label>
+				<p class="address"></p>
+				<label>Latitude</label>
+				<p class="lat"></p>
+				<label>Longitude</label>
+				<p class="lng"></p>
+			</div>
+		</div>
 		<script type="text/javascript" src="/main.js"></script>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHswJClTmsc25NJkFnOzAmAh_IvgwBGpY&callback=initMap"></script>
 	</body>
 </html>
