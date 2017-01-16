@@ -1,5 +1,7 @@
 const SERVER_URL = "http://localhost:3000/";
 const SUCCESS = 100;
+const DEFAULT_LAT = 0;
+const DEFAULT_LNG = 0;
 
 var map = null,
 	marker = null;
@@ -10,15 +12,19 @@ function showMap(ev) {
 	var idx = $(ev.target).data("idx");
 	var locData = LOCATION_DATA[idx];
 	if (locData) {
-		var latAndLng = {
-			lat: (locData.lat) ? parseFloat(locData.lat) : DEFAULT_LAT,
-			lng: (locData.lng) ? parseFloat(locData.lng) : DEFAULT_LNG,
-			alt: 0
-		};
+		var lat = (locData.lat) ? parseFloat(locData.lat) : DEFAULT_LAT;
+		var lng = (locData.lng) ? parseFloat(locData.lng) : DEFAULT_LNG;
+
+		// Hide main view.
+		$("#main").attr("class", "hide");
 
 		// show map view.
 		$("#map-canvas").attr("class", "");
-		redrawMap(latAndLng);
+
+		// Reposition the marker and map.
+		google.maps.event.trigger(map, 'resize');
+		map.setCenter(new google.maps.LatLng(lat, lng));
+		marker.setPosition(new google.maps.LatLng(lat, lng));
 
 		// Show details.
 		$("#map-canvas .details .zipcode").text(locData.zipcode ? locData.zipcode : "-NA-");
@@ -38,13 +44,12 @@ function initMap() {
 		map: map
 	});
 }
-function redrawMap(data) {
-	map.setCenter(data);
-	marker.setPosition(data);
-}
 function closeMapCanvas(ev) {
 	// hide map view.
 	$("#map-canvas").attr("class", "hide");
+
+	// Show main view.
+	$("#main").attr("class", "");
 }
 function showLocations() {
 	var domNode = $("#info table tbody"),

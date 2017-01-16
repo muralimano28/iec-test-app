@@ -8,38 +8,46 @@
 		<script type="text/javascript" src="/assets/jquery-3.1.1.min.js"></script>
 	</head>
 	<body>
-		<form id="inputform" method="GET" onsubmit="onSubmit(event)">
-			<label for="zipcode"></label>
-			<input type="text" id="zipcode" placeholder="Enter zipcode. Zipcode should be 3 characters or 5 charcters (Eg: 361)" required/>
-			<button type="submit">Submit</button>
-			<p class="errormsg"></p>
-		</form>
-		<div id="info">
-			<p class="errormsg"></p>
-			<div class="loader hide"></div>
-			<table>
-				<thead>
-					<tr>
-						<th>S.NO</th>
-						<th>ZIPCODE</th>
-						<th>ADDRESS</th>
-						<th>LATITUDE</th>
-						<th>LONGITUTDE</th>
-						<th>VIEW ON MAP</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr class="empty">
-						<td colspan=6>-- Table is empty --</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		<div id="api-errormsg" class="hide">
-			<p>Unknown error occurred</p>
+		<nav>
+			<div class="brand">IEC-test-app</div>
+			<div class="link">
+				<a class="github" target="_blank" href="https://github.com/muralimano28/iec-test-app"></a>
+			</div>
+		</nav>
+		<div id="main">
+			<form id="inputform" method="GET" onsubmit="onSubmit(event)">
+				<label for="zipcode"></label>
+				<input type="text" id="zipcode" placeholder="Enter zipcode. Zipcode should be 3 characters or 5 charcters (Eg: 361)" required/>
+				<button type="submit">Submit</button>
+				<p class="errormsg"></p>
+			</form>
+			<div id="info">
+				<p class="errormsg"></p>
+				<div class="loader hide"></div>
+				<table>
+					<thead>
+						<tr>
+							<th>S.NO</th>
+							<th>ZIPCODE</th>
+							<th>ADDRESS</th>
+							<th>LATITUDE</th>
+							<th>LONGITUTDE</th>
+							<th>VIEW ON MAP</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="empty">
+							<td colspan=6>-- Table is empty --</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div id="api-errormsg" class="hide">
+				<p class="errormsg">Unknown error occurre. Please try again after sometime.</p>
+			</div>
 		</div>
 		<div id="map-canvas" class="hide">
-			<button type="button" onclick="closeMapCanvas(event)">close</button>
+			<button type="button" class="back-btn" onclick="closeMapCanvas(event)">Back</button>
 			<div id="map"></div>
 			<div class="details">
 				<label>Zipcode</label>
