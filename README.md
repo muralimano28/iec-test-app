@@ -43,3 +43,7 @@ http://muralimanohar.in/iec-test-app
 
 This is the link to my API server. Make a GET request with any zipcode.
 http://muralimanohar.in/iec-api/361
+
+## Update
+Made few design changes in **home page** and **map view page**. I've deployed new version separately.
+http://muralimanohar.in/iec-test-app-v2
